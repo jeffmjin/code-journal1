@@ -16,6 +16,7 @@ function handleInput(event) {
 }
 
 function handleSubmit(event) {
+  event.preventDefault();
 
   data.nextEntryId++;
   var entries = {
@@ -26,5 +27,7 @@ function handleSubmit(event) {
   };
 
   data.entries.unshift(entries);
+  $photo.setAttribute('src', '/images/placeholder-image-square.jpg');
+  $form.reset();
 
 }
