@@ -17,10 +17,14 @@ function handleInput(event) {
 
 function handleSubmit(event) {
 
+  data.nextEntryId++;
   var entries = {
     title: $form.elements.name.value,
     url: $form.elements.url.value,
-    notes: $form.elements.notes.value
+    notes: $form.elements.notes.value,
+    entryId: data.nextEntryId
   };
+
+  data.entries.unshift(entries);
 
 }
