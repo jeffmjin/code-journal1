@@ -18,6 +18,10 @@
   width: 100%;
 }
 
+.column-ten {
+  flex-basis: 10%;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px;
@@ -31,4 +35,39 @@
   .column-half {
     width: 50%;
   }
+}
+
+@media screen and (max-width: 768px) {
+  .input-media {
+    margin-top: 20px;
+  }
+
+  .button-entry {
+    margin-left: 10px;
+  }
+}
+
+.margin-bot {
+  margin-bottom: 10px;
+}
+
+.margin-top {
+  margin-top: 20px;
+}
+
+.input-radius {
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
+.input-padding {
+  padding: 5px;
+}
+
+.j-end {
+  justify-content: end;
+}
+
+.h-entry {
+  font-weight: normal;
 }

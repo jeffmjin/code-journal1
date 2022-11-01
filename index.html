@@ -11,6 +11,11 @@
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
     crossorigin="anonymous"
     referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&family=Proza+Libre:wght@400;500&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
@@ -20,7 +25,7 @@
     <div class="container">
       <div class="row">
         <div class="column-full">
-          <h3>Code Journal</h3>
+          <h3 class="h-entry code-journal-text">Code Journal</h3>
         </div>
       </div>
     </div>
@@ -30,7 +35,7 @@
       <form class="container">
         <div class="row">
           <div class="column-full">
-            <h2>New Entry</h2>
+            <h2 class="new-entry-text">New Entry</h2>
           </div>
         </div>
         <div class="row">
@@ -41,32 +46,36 @@
               alt="placeholder">
           </div>
           <div class="column-half">
-            <label for="title">Title</label>
+            <label for="title" class="margin-bot input-media">Title</label>
             <input
               required
               id="title"
               name="name"
-              type="text">
-            <label for="url">Photo URL</label>
+              type="text"
+              class="input-radius input-padding">
+            <label for="url" class="margin-bot margin-top">Photo URL</label>
             <input
               required
               id="url"
               name="url"
-              type="url">
+              type="url"
+              class="input-radius input-padding">
           </div>
         </div>
         <div class="row">
           <div class="column-full">
-            <label for="notes">Notes</label>
+            <label for="notes" class="margin-bot margin-top">Notes</label>
             <textarea
               required
               id="notes"
-              name="notes"></textarea>
+              name="notes"
+              class="input-radius input-padding"
+              rows="6"></textarea>
           </div>
         </div>
-        <div class="row">
-          <div class="column-fourth">
-            <button id="save" class="save-entry">SAVE</button>
+        <div class="row j-end">
+          <div class="column-ten">
+            <button id="save" class="save-entry margin-top button-media">SAVE</button>
           </div>
         </div>
       </form>
