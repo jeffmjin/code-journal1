@@ -35,10 +35,38 @@
         </div>
         <div class="row">
           <div class="column-half">
-
+            <img
+              id="placeholder"
+              src="/images/placeholder-image-square.jpg"
+              alt="placeholder">
           </div>
           <div class="column-half">
-
+            <label for="title">Title</label>
+            <input
+              required
+              id="title"
+              name="name"
+              type="text">
+            <label for="url">Photo URL</label>
+            <input
+              required
+              id="url"
+              name="url"
+              type="url">
+          </div>
+        </div>
+        <div class="row">
+          <div class="column-full">
+            <label for="notes">Notes</label>
+            <textarea
+              required
+              id="notes"
+              name="notes"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column-fourth">
+            <button id="save" class="save-entry">SAVE</button>
           </div>
         </div>
       </form>
