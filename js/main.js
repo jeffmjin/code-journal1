@@ -17,7 +17,7 @@ function handleInput(event) {
 
 function handleSubmit(event) {
 
-  var formData = {
+  var entries = {
     title: $form.elements.name.value,
     url: $form.elements.url.value,
     notes: $form.elements.notes.value
