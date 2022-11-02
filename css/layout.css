@@ -35,6 +35,10 @@
   .column-half {
     width: 50%;
   }
+
+  .list {
+    margin-top: 0;
+  }
 }
 
 @media screen and (max-width: 768px) {
