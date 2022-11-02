@@ -3,9 +3,21 @@
 var $url = document.querySelector('#url');
 var $photo = document.querySelector('#image');
 var $form = document.querySelector('#form');
+var $divNewEntry = document.querySelector('#div-new-entry');
+var $divEntries = document.querySelector('#div-entries');
+var $anchorEntry = document.querySelector('.a-entries');
+var $anchorNew = document.querySelector('.new-button');
 
 $url.addEventListener('input', handleInput);
 $form.addEventListener('submit', handleSubmit);
+
+$anchorEntry.addEventListener('click', function () {
+  viewChange('entries');
+});
+
+$anchorNew.addEventListener('click', function () {
+  viewChange('entry-form');
+});
 
 function handleInput(event) {
   if ($photo === '') {
@@ -29,23 +41,12 @@ function handleSubmit(event) {
   data.entries.unshift(entries);
   $photo.setAttribute('src', '/images/placeholder-image-square.jpg');
   $form.reset();
+  $ul.prepend(journal(entries));
+  viewChange('entries');
 
 }
 
 function journal(entry) {
-  /* <li class="row margin-bot">
-      <div class="column-half">
-        <img src="/images/placeholder-image-square.jpg">
-      </div>
-      <div class="column-half">
-        <h3 class="list input-media">Some dummy title</h3>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Quod nobis dolores, quidem nisi necessitatibus id fugit repellat laudantium dolorem odio fuga placeat illo saepe,
-          ullam rem quasi facere accusantium veritatis.
-        </p>
-      </div>
-    </li> */
 
   var $list = document.createElement('li');
   $list.setAttribute('class', 'row margin-bot');
@@ -82,4 +83,17 @@ document.addEventListener('DOMContentLoaded', function (event) {
     var $entries = journal(data.entries[i]);
     $ul.appendChild($entries);
   }
+  viewChange(data.view);
 });
+
+function viewChange(view) {
+  data.view = view;
+  if (view === 'entry-form') {
+    $divEntries.className = 'hidden';
+    $divNewEntry.className = 'new-entry';
+  }
+  if (view === 'entries') {
+    $divNewEntry.className = 'hidden';
+    $divEntries.className = '';
+  }
+}
