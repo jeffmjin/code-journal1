@@ -75,3 +75,7 @@
 .h-entry {
   font-weight: normal;
 }
+
+.d-flex {
+  display: flex;
+}

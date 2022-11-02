@@ -61,3 +61,12 @@ textarea:focus {
 .unordered {
   padding: 0;
 }
+
+.a-entries {
+  font-size: 14px;
+  color: white;
+  margin-top: 18px;
+  margin-left: 15px;
+  letter-spacing: 0;
+  text-decoration: none;
+}
