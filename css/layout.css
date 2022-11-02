@@ -72,6 +72,10 @@
   justify-content: end;
 }
 
+.j-space {
+  justify-content: space-between;
+}
+
 .h-entry {
   font-weight: normal;
 }

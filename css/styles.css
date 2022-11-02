@@ -70,3 +70,13 @@ textarea:focus {
   letter-spacing: 0;
   text-decoration: none;
 }
+
+.new-button {
+  color: white;
+  background-color: #562b81;
+  border: none;
+  border-radius: 3px;
+  height: 50%;
+  padding: 0 14px;
+  margin-top: 18px;
+}
