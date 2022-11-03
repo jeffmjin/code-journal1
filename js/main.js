@@ -102,9 +102,16 @@ function viewChange(view) {
     $divEntries.className = '';
   }
 }
+$ul.addEventListener('click', handleClickIcon);
 
-$ul.addEventListener('click', function () {
+function handleClickIcon(event) {
   if (event.target.tagName === 'I') {
+    var editClosest = event.target.closest('li');
+    for (var x = 0; x < data.entries.length; x++) {
+      if (data.entries[x].entryId === editClosest) {
+        data.entries[x] = data.editing;
+      }
+    }
     viewChange('entry-form');
   }
-});
+}
