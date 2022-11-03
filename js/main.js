@@ -61,16 +61,20 @@ function journal(entry) {
   $colHalfTwo.setAttribute('class', 'column-half');
 
   var $hElement = document.createElement('h3');
-  $hElement.setAttribute('class', 'list input-media');
+  $hElement.setAttribute('class', 'list input-media h-dom d-flex');
   $hElement.textContent = entry.title;
 
   var $pElement = document.createElement('p');
   $pElement.textContent = entry.notes;
 
+  var $pen = document.createElement('i');
+  $pen.setAttribute('class', 'fa-solid fa-pen');
+
   $list.appendChild($colHalfOne);
   $list.appendChild($colHalfTwo);
   $colHalfOne.appendChild($img);
   $colHalfTwo.appendChild($hElement);
+  $hElement.appendChild($pen);
   $colHalfTwo.appendChild($pElement);
 
   return $list;
