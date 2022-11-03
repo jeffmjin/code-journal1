@@ -102,3 +102,9 @@ function viewChange(view) {
     $divEntries.className = '';
   }
 }
+
+$ul.addEventListener('click', function () {
+  if (event.target.tagName === 'I') {
+    viewChange('entry-form');
+  }
+});
