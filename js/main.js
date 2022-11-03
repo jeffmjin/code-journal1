@@ -50,6 +50,7 @@ function journal(entry) {
 
   var $list = document.createElement('li');
   $list.setAttribute('class', 'row margin-bot');
+  $list.setAttribute('data-entry-id', entry.entryId);
 
   var $colHalfOne = document.createElement('div');
   $colHalfOne.setAttribute('class', 'column-half');
