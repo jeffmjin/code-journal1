@@ -106,12 +106,26 @@ $ul.addEventListener('click', handleClickIcon);
 
 function handleClickIcon(event) {
   if (event.target.tagName === 'I') {
-    var editClosest = event.target.closest('li');
+    var editClosest = parseInt(event.target.closest('li').getAttribute('data-entry-id'));
     for (var x = 0; x < data.entries.length; x++) {
       if (data.entries[x].entryId === editClosest) {
-        data.entries[x] = data.editing;
+        data.editing = data.entries[x];
       }
+      handleEditEntry(data.editing);
     }
-    viewChange('entry-form');
   }
+}
+
+var $editHeading = document.querySelector('.new-entry-text');
+var $editTitle = document.querySelector('#title');
+var $notes = document.querySelector('#notes');
+
+function handleEditEntry(entry) {
+  viewChange('entry-form');
+  $editHeading.textContent = 'Edit Entry';
+  $editTitle.value = entry.title;
+  $photo.src = entry.url;
+  $url.value = entry.url;
+  $notes.value = entry.notes;
+
 }
