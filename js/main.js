@@ -30,20 +30,33 @@ function handleInput(event) {
 function handleSubmit(event) {
   event.preventDefault();
 
-  data.nextEntryId++;
-  var entries = {
-    title: $form.elements.name.value,
-    url: $form.elements.url.value,
-    notes: $form.elements.notes.value,
-    entryId: data.nextEntryId
-  };
+  if (data.editing === null) {
+    data.nextEntryId++;
+    var entries = {
+      title: $form.elements.name.value,
+      url: $form.elements.url.value,
+      notes: $form.elements.notes.value,
+      entryId: data.nextEntryId
+    };
 
-  data.entries.unshift(entries);
-  $photo.setAttribute('src', '/images/placeholder-image-square.jpg');
-  $form.reset();
-  $ul.prepend(journal(entries));
-  viewChange('entries');
+    data.entries.unshift(entries);
+    $photo.setAttribute('src', '/images/placeholder-image-square.jpg');
+    $form.reset();
+    $ul.prepend(journal(entries));
+    viewChange('entries');
+  } else {
+    var newEntries = {
+      title: $form.elements.name.value,
+      url: $form.elements.url.value,
+      notes: $form.elements.notes.value,
+      entryId: data.editing.nextEntryId
+    };
 
+    handleEditEntry(newEntries);
+    $photo.setAttribute('src', '/images/placeholder-image-square.jpg');
+    $form.reset();
+    viewChange('entries');
+  }
 }
 
 function journal(entry) {
