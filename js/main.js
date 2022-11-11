@@ -40,21 +40,31 @@ function handleSubmit(event) {
     };
 
     data.entries.unshift(entries);
-    $photo.setAttribute('src', '/images/placeholder-image-square.jpg');
-    $form.reset();
     $ul.prepend(journal(entries));
-    viewChange('entries');
-  } else {
-    var newEntries = {
-      title: $form.elements.name.value,
-      url: $form.elements.url.value,
-      notes: $form.elements.notes.value,
-      entryId: data.editing.nextEntryId
-    };
-
-    handleEditEntry(newEntries);
     $photo.setAttribute('src', '/images/placeholder-image-square.jpg');
     $form.reset();
+    viewChange('entries');
+
+  } else {
+
+    for (var z = 0; z < data.entries.length; z++) {
+      if (data.entries[z].entryId === data.editing.entryId) {
+        var newEntries = {
+          title: $form.elements.name.value,
+          url: $form.elements.url.value,
+          notes: $form.elements.notes.value,
+          entryId: data.editing.nextEntryId
+        };
+        var allLi = document.querySelectorAll('li');
+        var editing = Number(allLi[z].closest('li').getAttribute('data-entry-id'));
+        if (data.editing.entryId === editing) {
+          var editingEntry = journal(newEntries);
+          allLi[z].replaceWith(editingEntry);
+        }
+      }
+    }
+
+    $photo.setAttribute('src', '/images/placeholder-image-square.jpg');
     viewChange('entries');
   }
 }
