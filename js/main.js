@@ -41,10 +41,6 @@ function handleSubmit(event) {
 
     data.entries.unshift(entries);
     $ul.prepend(journal(entries));
-    $photo.setAttribute('src', '/images/placeholder-image-square.jpg');
-    $form.reset();
-    viewChange('entries');
-
   } else {
 
     for (var z = 0; z < data.entries.length; z++) {
@@ -53,7 +49,7 @@ function handleSubmit(event) {
           title: $form.elements.name.value,
           url: $form.elements.url.value,
           notes: $form.elements.notes.value,
-          entryId: data.editing.nextEntryId
+          entryId: data.nextEntryId
         };
         var allLi = document.querySelectorAll('li');
         var editing = Number(allLi[z].closest('li').getAttribute('data-entry-id'));
@@ -61,12 +57,14 @@ function handleSubmit(event) {
           var editingEntry = journal(newEntries);
           allLi[z].replaceWith(editingEntry);
         }
+        data.entries.splice(z, 1, newEntries);
       }
     }
-
-    $photo.setAttribute('src', '/images/placeholder-image-square.jpg');
-    viewChange('entries');
   }
+  $photo.setAttribute('src', '/images/placeholder-image-square.jpg');
+  $form.reset();
+  viewChange('entries');
+  data.editing = null;
 }
 
 function journal(entry) {
@@ -133,8 +131,8 @@ function handleClickIcon(event) {
     for (var x = 0; x < data.entries.length; x++) {
       if (data.entries[x].entryId === editClosest) {
         data.editing = data.entries[x];
+        handleEditEntry(data.editing);
       }
-      handleEditEntry(data.editing);
     }
   }
 }
@@ -144,11 +142,10 @@ var $editTitle = document.querySelector('#title');
 var $notes = document.querySelector('#notes');
 
 function handleEditEntry(entry) {
-  viewChange('entry-form');
   $editHeading.textContent = 'Edit Entry';
   $editTitle.value = entry.title;
   $photo.src = entry.url;
   $url.value = entry.url;
   $notes.value = entry.notes;
-
+  viewChange('entry-form');
 }
