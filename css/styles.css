@@ -81,3 +81,12 @@ textarea:focus {
   margin-top: 22px;
   text-decoration: none;
 }
+
+.fa-pen {
+  color: #562b81;
+  margin-top: 4px;
+}
+
+.h-dom {
+  justify-content: space-between;
+}
