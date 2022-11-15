@@ -51,7 +51,7 @@ textarea:focus {
   background-color: #562b81;
   border: none;
   border-radius: 3px;
-  margin-left: 13px;
+  margin-left: 100px;
 }
 
 .code-journal-text {
@@ -89,4 +89,10 @@ textarea:focus {
 
 .h-dom {
   justify-content: space-between;
+}
+
+.delete {
+  color: red;
+  margin-left: 7px;
+  margin-top: 20px;
 }

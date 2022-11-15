@@ -19,7 +19,7 @@
 }
 
 .column-ten {
-  flex-basis: 10%;
+  flex-basis: 20%;
 }
 
 @media screen and (min-width: 768px) {
