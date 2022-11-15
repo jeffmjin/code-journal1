@@ -158,3 +158,7 @@ var $delete = document.querySelector('.delete');
 $delete.addEventListener('click', function (event) {
   $modal.className = 'modal-container';
 });
+
+$cancel.addEventListener('click', function (event) {
+  $modal.className = 'modal-container hidden';
+});
