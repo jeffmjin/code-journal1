@@ -68,6 +68,10 @@
   padding: 5px;
 }
 
+.j-center {
+  justify-content: center;
+}
+
 .j-end {
   justify-content: end;
 }
