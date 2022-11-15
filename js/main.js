@@ -149,3 +149,12 @@ function handleEditEntry(entry) {
   $notes.value = entry.notes;
   viewChange('entry-form');
 }
+
+var $modal = document.querySelector('#modal');
+var $cancel = document.querySelector('.cancel-button');
+var $confirm = document.querySelector('.confirm-button');
+var $delete = document.querySelector('.delete');
+
+$delete.addEventListener('click', function (event) {
+  $modal.className = 'modal-container';
+});
