@@ -149,3 +149,33 @@ function handleEditEntry(entry) {
   $notes.value = entry.notes;
   viewChange('entry-form');
 }
+
+var $modal = document.querySelector('#modal');
+var $cancel = document.querySelector('.cancel-button');
+var $confirm = document.querySelector('.confirm-button');
+var $delete = document.querySelector('.delete');
+
+$delete.addEventListener('click', function (event) {
+  $modal.className = 'modal-container';
+});
+
+$cancel.addEventListener('click', function (event) {
+  $modal.className = 'modal-container hidden';
+});
+
+$confirm.addEventListener('click', function (event) {
+  if (event.target.matches('.confirm-button')) {
+    var $confirmLi = document.querySelectorAll('li');
+    for (var n = 0; n < $confirmLi.length; n++) {
+      var dataEntry = Number($confirmLi[n].getAttribute('data-entry-id'));
+      if (dataEntry === data.entries[n].entryId) {
+        data.entries.splice(n, 1);
+      }
+      if (dataEntry === data.editing.entryId) {
+        $confirmLi[n].remove();
+      }
+      $modal.className = 'modal-container hidden';
+      viewChange('entries');
+    }
+  }
+});
